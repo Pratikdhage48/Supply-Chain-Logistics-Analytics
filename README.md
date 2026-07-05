@@ -143,4 +143,4 @@ This dashboard helps organizations:
 
 # 📊 Dashboard Preview
 
- ![Dashboard](https://github.com/Pratikdhage48/Supply-Chain-Logistics-Analytics/blob/main/Executive_Overview.JPG)
+ ![Dashboard](https://github.com/Pratikdhage48/Supply-Chain-Logistics-Analytics/main/ExecutiveOverview.JPG)
