@@ -1,4 +1,3 @@
-# Supply-Chain-Logistics-Analytics
 # 🚚 Supply Chain & Logistics Analytics Dashboard
 
 An end-to-end **Supply Chain & Logistics Analytics** project that leverages **SQL, Python, Excel, and Power BI** to analyze operational and financial data. The project transforms raw supply chain data into actionable business insights through interactive dashboards, helping stakeholders monitor performance, optimize inventory, evaluate supplier efficiency, and improve logistics operations.
