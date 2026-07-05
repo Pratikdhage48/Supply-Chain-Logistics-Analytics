@@ -145,3 +145,4 @@ This dashboard helps organizations:
 
  ![Dashboard](https://raw.githubusercontent.com/Pratikdhage48/Supply-Chain-Logistics-Analytics/main/Executive_Overview.jpg)
  ![Dashboard](https://raw.githubusercontent.com/Pratikdhage48/Supply-Chain-Logistics-Analytics/main/Product_&_Inventory_Analysis.jpg)
+ ![Dashboard](https://raw.githubusercontent.com/Pratikdhage48/Supply-Chain-Logistics-Analytics/main/Supplier_&_Logistics_Analysis.jpg)
