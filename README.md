@@ -193,34 +193,6 @@ Supply-Chain-Logistics-Analytics/
 └── requirements.txt                    # (not included — add pandas, numpy, matplotlib, seaborn)
 ```
 
-## 💻 Installation & Setup
-
-```bash
-# Clone the repository
-git clone https://github.com/<your-username>/supply-chain-logistics-analytics.git
-cd supply-chain-logistics-analytics
-
-# Create and activate a virtual environment (optional but recommended)
-python -m venv venv
-source venv/bin/activate      # Windows: venv\Scripts\activate
-
-# Install dependencies
-pip install pandas numpy matplotlib seaborn jupyter
-```
-
-## ▶️ How to Run the Project
-
-1. **SQL:** Load `supply_chain_data.csv` into SQL Server as `supplychain_data`, then run `Supply_Chain_&_Logistics_Queries.sql` in SSMS.
-2. **Python:** Update the hardcoded file path in the first cell of the notebook to a relative path (e.g. `data/supply_chain_data.csv`), then run all cells in Jupyter.
-3. **Power BI:** Open `Supply_Chain_&_Logistics_Report.pbix` in Power BI Desktop and refresh the data source to point at your local CSV/SQL table.
-
-## 🖼️ Project Screenshots
-
-Insert dashboard screenshots in this section once the repository is set up:
-- `screenshots/executive_overview.png`
-- `screenshots/product_inventory.png`
-- `screenshots/supplier_logistics.png`
-
 ## 🚀 Future Improvements
 
 - Fix the Average Defect Rate DAX measure and the SQL `RANK()` / `TOP 5` ordering issues (see Review section)
