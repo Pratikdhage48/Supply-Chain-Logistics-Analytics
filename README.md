@@ -1,145 +1,247 @@
-# 🚚 Supply Chain & Logistics Analytics Dashboard
+# 📦 Supply Chain & Logistics Analytics Dashboard
 
-An end-to-end **Supply Chain & Logistics Analytics** project that leverages **SQL, Python, Excel, and Power BI** to analyze operational and financial data. The project transforms raw supply chain data into actionable business insights through interactive dashboards, helping stakeholders monitor performance, optimize inventory, evaluate supplier efficiency, and improve logistics operations.
+End-to-end analytics project covering data cleaning, SQL analysis, Python EDA, and an interactive Power BI dashboard for supply chain, inventory, supplier, and logistics performance.
 
----
-
-# 📖 Description
-
-This project demonstrates a complete data analytics workflow, from data cleaning and exploratory data analysis (EDA) to SQL querying and interactive dashboard development. It focuses on analyzing key supply chain metrics, including revenue, profit, inventory levels, supplier performance, transportation costs, shipping efficiency, and lead times.
-
-The interactive Power BI dashboard provides a centralized view of business performance, enabling organizations to identify trends, monitor KPIs, optimize operations, and support data-driven decision-making.
+![SQL](https://img.shields.io/badge/SQL-SSMS-CC2927?logo=microsoftsqlserver&logoColor=white)
+![Python](https://img.shields.io/badge/Python-3.13-3776AB?logo=python&logoColor=white)
+![Pandas](https://img.shields.io/badge/Pandas-Data%20Analysis-150458?logo=pandas&logoColor=white)
+![Power BI](https://img.shields.io/badge/Power%20BI-Dashboard-F2C811?logo=powerbi&logoColor=black)
+![Status](https://img.shields.io/badge/Status-Completed-brightgreen)
 
 ---
 
-# 🛠️ Tech Stack
+## 📖 Project Overview
 
-| Technology | Purpose |
-|------------|---------|
-| **Microsoft Excel** | Initial data exploration and preprocessing |
-| **SQL Server** | Data storage, querying, and business analysis |
-| **Python** | Data cleaning, transformation, and exploratory data analysis (EDA) |
-| **Pandas** | Data manipulation and preprocessing |
-| **NumPy** | Numerical computations |
-| **Matplotlib** | Data visualization |
-| **Seaborn** | Statistical data visualization |
-| **Power BI** | Interactive dashboard development and business intelligence |
-| **DAX** | KPI calculations and custom measures |
+This project analyzes an end-to-end supply chain dataset — sales, inventory, suppliers, manufacturing, quality, and logistics — and turns it into a 3-page interactive Power BI dashboard, backed by SQL views/queries and a Python (Pandas/Seaborn) EDA notebook.
 
----
+## ❓ Problem Statement
 
-# 💼 Business Problem
+Supply chain data at the company is spread across sales, inventory, supplier, manufacturing, and logistics functions, making it hard for management to spot high-cost areas, inventory risk, underperforming suppliers, and the most profitable products in one place.
 
-Supply chain operations involve multiple interconnected processes, including inventory management, supplier performance, product sales, transportation, and logistics. Without centralized reporting, organizations often struggle to:
+## 🎯 Business Objective
 
-- Monitor business performance across multiple operational areas.
-- Identify top-performing and underperforming products.
-- Maintain optimal inventory levels to avoid stock shortages or excess inventory.
-- Evaluate supplier performance and lead times.
-- Compare shipping carriers and transportation costs.
-- Measure profitability across products and suppliers.
-- Make timely, data-driven operational decisions.
+Consolidate the data into a single model and build an interactive dashboard that helps management:
+- Track revenue, profit, and cost across products, suppliers, and carriers
+- Monitor inventory health and identify restocking risk
+- Evaluate supplier reliability (lead time, defect rate)
+- Compare logistics providers and delivery routes on cost and speed
 
-This project addresses these challenges by integrating operational data into a centralized analytics dashboard that provides meaningful business insights and supports strategic decision-making.
+## 🗂️ Dataset Information
 
----
+| Attribute | Details |
+|---|---|
+| Grain | One row per SKU / order record |
+| Key fields | Product Category, SKU, Unit Price, Product Availability (%), Units Sold, Sales Revenue, Customer Gender, Current Inventory, Order Lead Time, Order Quantity, Supplier, Supplier Location, Supplier Lead Time, Manufacturing Cost, Manufacturing Lead Time, Defect Rate (%), Quality Inspection Status, Shipping Carrier, Shipping Cost, Shipping Time, Transportation Mode, Transportation Cost, Delivery Route |
+| Format | CSV, loaded into SQL Server and Pandas |
 
-# 🎯 Goal of the Dashboard
+> **Note:** The raw CSV file was not included in the uploaded project files, so exact row/column counts could not be independently verified for this documentation — insert the actual `df.shape` output from the notebook here once confirmed.
 
-The primary objective of this dashboard is to provide stakeholders with a comprehensive view of supply chain performance through interactive analytics and KPI monitoring.
+## 🛠️ Tools & Technologies
 
-The dashboard enables users to:
+| Category | Tools |
+|---|---|
+| Database | SQL Server (T-SQL, Views, Window Functions) |
+| Programming | Python (Pandas, NumPy) |
+| Visualization | Matplotlib, Seaborn, Power BI |
+| BI / Dashboard | Power BI Desktop (slicers, decomposition tree, DAX measures) |
 
-- Monitor revenue, profit, costs, and profit margins.
-- Analyze product and inventory performance.
-- Evaluate supplier performance and profitability.
-- Compare logistics costs and shipping efficiency.
-- Identify inventory risks through inventory status analysis.
-- Analyze transportation modes and delivery routes.
-- Support business decisions using dynamic filtering and interactive visualizations.
+## 🏗️ Project Architecture / Workflow
 
----
+```
+Raw CSV Data
+     │
+     ▼
+SQL Server  →  Data cleaning checks, vw_SupplyChain (Total Cost, Profit)
+     │
+     ▼
+Python (Pandas/Seaborn) → Cleaning, feature engineering, EDA, visual insights
+     │
+     ▼
+Power BI  →  Data model, DAX measures, 3-page interactive dashboard
+     │
+     ▼
+Business Insights & Recommendations
+```
 
-# ✨ Features / Highlights
+## 🧹 Data Cleaning Process
 
-## 📊 Executive Overview
+**SQL** (`Supply Chain & Logistics Querys.sql`):
+- Checked for duplicate `SKU` records
+- Checked for `NULL` values in `Product_Category`, `SKU`, `Sales_Revenue`, `Supplier`
+- Reviewed distinct values for categorical fields (`Product_Category`, `Customer_Gender`, `Shipping_Carrier`, `Supplier`, `Supplier_Location`, `Quality_Inspection_Status`, `Transportation_Mode`, `Delivery_Route`) to catch inconsistent labels
 
-- Displays key business KPIs including Revenue, Profit, Cost, Units Sold, Inventory Level, and Profit Margin.
-- Revenue analysis by Product Category, Supplier, and Shipping Carrier.
-- Top-performing SKUs based on revenue.
-- Customer gender-wise revenue analysis.
-- Interactive slicers for dynamic filtering.
+**Python** (`Supply_Chain_&_Logistics.ipynb`):
+- `df.info()`, `df.describe()`, `df.describe(include='object')` to profile the data
+- `df.isnull().sum()` for missing values
+- `df[df.duplicated()]` for full-row duplicates
+- Rounded float columns to 2 decimals
+- Renamed verbose columns (e.g. `Order Lead Time (Days)` → `Order Lead Time`, `Current Inventory` → `Inventory Level`) for readability
 
----
+## 📊 Exploratory Data Analysis (EDA)
 
-## 📦 Product & Inventory Analysis
+Performed in Python with Matplotlib/Seaborn:
+- Product category distribution (pie chart)
+- Revenue distribution and revenue by category/supplier (bar, histogram)
+- Profit distribution and profit by category
+- Defect rate by supplier
+- Shipping cost by carrier
+- Inventory level distribution and by category (pie, histogram)
+- Inventory status distribution
+- Unit Price vs Units Sold scatter (by category)
+- Correlation heatmap across numeric fields
+- Boxplots for Sales Revenue, Shipping Cost, and Profit Margin (outlier check)
+- Pairplot across Unit Price, Sales Revenue, Profit, Inventory Level, Units Sold
 
-- Top 10 revenue-generating SKUs.
-- Product-wise inventory level analysis.
-- Profit margin comparison across product categories.
-- Average order lead time analysis.
-- Inventory status distribution (High, Medium, Low).
-- Revenue analysis by inventory status.
-- Interactive decomposition tree for revenue exploration.
+## ⚙️ Feature Engineering
 
----
+New columns created for business analysis:
 
-## 🚚 Supplier & Logistics Analysis
+| Column | Logic |
+|---|---|
+| `Total Cost` | `Manufacturing Cost + Shipping Cost + Transportation Cost` |
+| `Profit` | `Sales Revenue − Total Cost` |
+| `Profit Margin (%)` | `Profit / Sales Revenue × 100` |
+| `Inventory Status` | `Low` (≤30), `Medium` (31–70), `High` (>70), based on `Inventory Level` |
 
-- Manufacturing cost analysis by supplier.
-- Transportation cost analysis by transportation mode.
-- Shipping cost comparison across carriers.
-- Supplier defect rate analysis.
-- Transportation cost by delivery route.
-- Supplier lead time vs. defect rate analysis.
-- Supplier performance summary table.
-- Interactive filtering by supplier, transportation mode, shipping carrier, delivery route, and supplier location.
+## 🗃️ SQL Analysis
 
----
+A `vw_SupplyChain` view adds `TotalCost` and `Profit` on top of the raw table. Query groups cover:
+- **Revenue:** total revenue, revenue by category/supplier/carrier/gender, top-5 SKUs, `RANK()` of products overall and within category
+- **Inventory:** average inventory by category, highest/lowest inventory SKUs, average order quantity, average product availability
+- **Supplier:** revenue and manufacturing cost by supplier, average lead time, average defect rate, profit by supplier
+- **Logistics:** shipping cost by carrier, transportation cost by mode, shipping time by carrier, delivery route performance (revenue, cost, avg shipping/lead time, profit)
+- **Quality:** inspection status counts, average defect rate by category/supplier
 
-## 📈 Key Performance Indicators (KPIs)
+> ⚠️ See [Project Quality Review](#-project-quality-review) below — two of these queries have logic issues that should be fixed before calling this "portfolio ready."
 
-- Total Revenue
-- Total Profit
-- Profit Margin (%)
-- Total Cost
-- Total Units Sold
-- Total Inventory Level
-- Order Quantity
-- Average Shipping Cost
-- Average Transportation Cost
-- Average Supplier Lead Time
-- Average Defect Rate
+## 🐍 Python Analysis
 
----
+The notebook (`Supply_Chain_&_Logistics.ipynb`) covers business problem framing, EDA, feature engineering, and a conclusion/recommendations section, using `pandas`, `numpy`, `matplotlib`, and `seaborn`.
 
-## 📊 Dashboard Features
+## 📈 Power BI Dashboard
 
-- Three interactive Power BI dashboard pages.
-- Dynamic slicers and filters.
-- KPI cards for performance monitoring.
-- Bar Charts
-- Donut Charts
-- Treemap
-- Bubble Chart
-- Decomposition Tree
-- Summary Table
-- Cross-filtering between visuals.
-- Business-focused visual analytics.
+Three pages, connected by a shared slicer panel and left-hand navigation:
 
----
+### 1. Executive Overview
+KPI cards (Total Revenue, Total Units Sold, Total Profit, Profit Margin %, Total Cost, Total Inventory Level) plus Revenue by Product, Revenue by Supplier, Revenue by Shipping Carrier, Top 5 SKU by Revenue, Revenue by Customer Gender, and a Revenue-by-Supplier tree map.
 
-## 💡 Business Value
+### 2. Product & Inventory Analysis
+Top 10 SKU by Revenue, Inventory Level by Product, Profit Margin by Product, Average Order Lead Time by Product, Inventory Status by SKU (donut), Revenue by Inventory Status, and a Revenue decomposition tree (Category → Supplier → Carrier → Transport Mode → Location → Inspection Status).
 
-This dashboard helps organizations:
+### 3. Supplier & Logistics
+KPI cards (Average Shipping Cost, Average Transportation Cost, Average Supplier Lead Time, Average Defect Rate), Manufacturing Cost by Supplier, Transportation Cost by Mode, Shipping Cost by Carrier, Defect Rate by Supplier, Transportation Cost by Delivery Route, a Supplier Lead Time vs Defect Rate scatter, and a full supplier cost/profit table.
 
-- Improve inventory planning and stock management.
-- Identify the most profitable products and suppliers.
-- Reduce logistics and transportation costs.
-- Monitor supplier quality and lead times.
-- Optimize shipping operations.
-- Track operational KPIs in real time.
-- Support strategic business decisions through interactive analytics.
+*(Insert dashboard screenshots here: `/screenshots/executive_overview.png`, `/screenshots/product_inventory.png`, `/screenshots/supplier_logistics.png`)*
+
+## 📐 Key Performance Indicators (KPIs)
+
+| KPI | Executive Overview | Product & Inventory | Supplier & Logistics |
+|---|---|---|---|
+| Total Revenue | ₹577.60K | ₹577.60K | — |
+| Total Units Sold | 46.10K | 46.10K | — |
+| Total Profit | ₹519.40K | — | — |
+| Profit Margin (%) | 89.92% | — | — |
+| Total Cost | ₹58.21K | — | — |
+| Total Inventory Level | 4.78K | 4.78K | — |
+| Order Quantity | — | 4.92K | — |
+| Average Shipping Cost | — | — | ₹5.55 |
+| Average Transportation Cost | — | — | ₹529.25 |
+| Average Supplier Lead Time | — | — | 17.08 days |
+| Average Defect Rate (%) | — | — | ⚠️ 227.71% (see Review) |
+
+## 🖥️ Dashboard Pages Explanation
+
+See [Power BI Dashboard](#-power-bi-dashboard) above for a page-by-page breakdown of visuals and their purpose.
+
+## 💡 Key Business Insights
+
+- **Skincare** is the top revenue-generating category (₹241.63K), ahead of Haircare (₹174.46K) and Cosmetics (₹161.52K).
+- **Global Supply Ltd** is the leading supplier by revenue contribution (~₹158K) but also carries a high manufacturing cost (~₹1,222) and mid-range defect rate.
+- **DTDC** handles the largest share of shipped revenue (₹250.09K) among the three carriers tracked.
+- Female customers drive **59.13%** of revenue versus 40.87% from male customers.
+- **Route A** carries the highest transportation cost (2.2K) of the three delivery routes, well above Route B and C.
+- Inventory is fairly balanced: 41.71% of revenue sits in "Medium" inventory-status SKUs, 35.53% in "Low," and 22.76% in "High," suggesting a meaningful share of revenue-driving products may be under-stocked.
+- **Elite Distributors** has the lowest defect-rate figure and lowest manufacturing cost among the five suppliers, but also the lowest revenue contribution — a possible quality-vs-scale trade-off worth investigating further.
+
+## ✅ Business Recommendations
+
+1. Prioritize inventory replenishment for "Low" and "Medium" status SKUs that are already high-revenue, to avoid stockouts on best-sellers.
+2. Review **Prime Manufacturing** and **Global Supply Ltd** — the two highest cumulative defect-rate suppliers in the table — for quality-improvement plans or renegotiation.
+3. Evaluate whether volume can be shifted from Route A toward the lower-cost Route B/C without hurting delivery performance.
+4. Benchmark **Blue Dart** and **Delhivery** against **DTDC** on cost-per-shipment, since DTDC currently carries the most shipping cost and revenue share.
+5. Fix the **Average Defect Rate (%)** measure (currently showing 227.71%, which is not a valid percentage) before sharing this dashboard externally — see the Review section for the likely cause.
+
+## 📁 Project Folder Structure
+
+```
+Supply-Chain-Logistics-Analytics/
+│
+├── data/
+│   └── supply_chain_data.csv          # (not included in upload — add source data here)
+│
+├── sql/
+│   └── Supply_Chain_&_Logistics_Queries.sql
+│
+├── notebook/
+│   └── Supply_Chain_&_Logistics.ipynb
+│
+├── dashboard/
+│   └── Supply_Chain_&_Logistics_Report.pbix
+│
+├── screenshots/
+│   ├── executive_overview.png
+│   ├── product_inventory.png
+│   └── supplier_logistics.png
+│
+├── README.md
+└── requirements.txt                    # (not included — add pandas, numpy, matplotlib, seaborn)
+```
+
+## 💻 Installation & Setup
+
+```bash
+# Clone the repository
+git clone https://github.com/<your-username>/supply-chain-logistics-analytics.git
+cd supply-chain-logistics-analytics
+
+# Create and activate a virtual environment (optional but recommended)
+python -m venv venv
+source venv/bin/activate      # Windows: venv\Scripts\activate
+
+# Install dependencies
+pip install pandas numpy matplotlib seaborn jupyter
+```
+
+## ▶️ How to Run the Project
+
+1. **SQL:** Load `supply_chain_data.csv` into SQL Server as `supplychain_data`, then run `Supply_Chain_&_Logistics_Queries.sql` in SSMS.
+2. **Python:** Update the hardcoded file path in the first cell of the notebook to a relative path (e.g. `data/supply_chain_data.csv`), then run all cells in Jupyter.
+3. **Power BI:** Open `Supply_Chain_&_Logistics_Report.pbix` in Power BI Desktop and refresh the data source to point at your local CSV/SQL table.
+
+## 🖼️ Project Screenshots
+
+Insert dashboard screenshots in this section once the repository is set up:
+- `screenshots/executive_overview.png`
+- `screenshots/product_inventory.png`
+- `screenshots/supplier_logistics.png`
+
+## 🚀 Future Improvements
+
+- Fix the Average Defect Rate DAX measure and the SQL `RANK()` / `TOP 5` ordering issues (see Review section)
+- Add a `requirements.txt` and remove the hardcoded local file path in the notebook
+- Add row-level data validation (defect rate bounds, negative cost/revenue checks)
+- Extend the model with a time dimension (currently no date field is used) to support trend analysis
+- Add row-level counts / data dictionary to this README once the source CSV is available
+- Publish the dashboard to Power BI Service and link it here
+
+## 👤 Author
+
+**Your Name** — Data Analyst
+📧 your.email@example.com · 🔗 [LinkedIn](https://linkedin.com) · 🔗 [GitHub](https://github.com)
+
+## 📄 License
+
+This project is released under the [MIT License](LICENSE).
 
 # 📊 Dashboard Preview
 
