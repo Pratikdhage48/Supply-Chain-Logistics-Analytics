@@ -108,8 +108,6 @@ A `vw_SupplyChain` view adds `TotalCost` and `Profit` on top of the raw table. Q
 - **Logistics:** shipping cost by carrier, transportation cost by mode, shipping time by carrier, delivery route performance (revenue, cost, avg shipping/lead time, profit)
 - **Quality:** inspection status counts, average defect rate by category/supplier
 
-> ⚠️ See [Project Quality Review](#-project-quality-review) below — two of these queries have logic issues that should be fixed before calling this "portfolio ready."
-
 ## 🐍 Python Analysis
 
 The notebook (`Supply_Chain_&_Logistics.ipynb`) covers business problem framing, EDA, feature engineering, and a conclusion/recommendations section, using `pandas`, `numpy`, `matplotlib`, and `seaborn`.
@@ -128,22 +126,6 @@ Top 10 SKU by Revenue, Inventory Level by Product, Profit Margin by Product, Ave
 KPI cards (Average Shipping Cost, Average Transportation Cost, Average Supplier Lead Time, Average Defect Rate), Manufacturing Cost by Supplier, Transportation Cost by Mode, Shipping Cost by Carrier, Defect Rate by Supplier, Transportation Cost by Delivery Route, a Supplier Lead Time vs Defect Rate scatter, and a full supplier cost/profit table.
 
 *(Insert dashboard screenshots here: `/screenshots/executive_overview.png`, `/screenshots/product_inventory.png`, `/screenshots/supplier_logistics.png`)*
-
-## 📐 Key Performance Indicators (KPIs)
-
-| KPI | Executive Overview | Product & Inventory | Supplier & Logistics |
-|---|---|---|---|
-| Total Revenue | ₹577.60K | ₹577.60K | — |
-| Total Units Sold | 46.10K | 46.10K | — |
-| Total Profit | ₹519.40K | — | — |
-| Profit Margin (%) | 89.92% | — | — |
-| Total Cost | ₹58.21K | — | — |
-| Total Inventory Level | 4.78K | 4.78K | — |
-| Order Quantity | — | 4.92K | — |
-| Average Shipping Cost | — | — | ₹5.55 |
-| Average Transportation Cost | — | — | ₹529.25 |
-| Average Supplier Lead Time | — | — | 17.08 days |
-| Average Defect Rate (%) | — | — | ⚠️ 227.71% (see Review) |
 
 ## 🖥️ Dashboard Pages Explanation
 
