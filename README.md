@@ -184,6 +184,9 @@ Supply-Chain-Logistics-Analytics/
 - Add row-level counts / data dictionary to this README once the source CSV is available
 - Publish the dashboard to Power BI Service and link it here
 
+📄 License
+This project uses a publicly available sample dataset for educational/portfolio purposes.
+
 # 📊 Dashboard Preview
 
  ![Dashboard](https://raw.githubusercontent.com/Pratikdhage48/Supply-Chain-Logistics-Analytics/main/Executive_Overview.jpg)
