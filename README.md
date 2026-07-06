@@ -2,11 +2,7 @@
 
 End-to-end analytics project covering data cleaning, SQL analysis, Python EDA, and an interactive Power BI dashboard for supply chain, inventory, supplier, and logistics performance.
 
-![SQL](https://img.shields.io/badge/SQL-SSMS-CC2927?logo=microsoftsqlserver&logoColor=white)
-![Python](https://img.shields.io/badge/Python-3.13-3776AB?logo=python&logoColor=white)
-![Pandas](https://img.shields.io/badge/Pandas-Data%20Analysis-150458?logo=pandas&logoColor=white)
-![Power BI](https://img.shields.io/badge/Power%20BI-Dashboard-F2C811?logo=powerbi&logoColor=black)
-![Status](https://img.shields.io/badge/Status-Completed-brightgreen)
+> **Tech Stack:** Microsoft SQL Server 2022 · Python (Pandas, Numpy, Matplotlib, Seaborn) · Jupyter Notebook · Power BI . Excel
 
 ---
 
