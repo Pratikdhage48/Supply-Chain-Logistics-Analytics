@@ -191,4 +191,4 @@ This project uses a publicly available sample dataset for educational/portfolio 
 
  ![Dashboard](https://raw.githubusercontent.com/Pratikdhage48/Supply-Chain-Logistics-Analytics/main/Executive_Overview.jpg)
  ![Dashboard](https://raw.githubusercontent.com/Pratikdhage48/Supply-Chain-Logistics-Analytics/main/Product_&_Inventory_Analysis.jpg)
- ![Dashboard](https://raw.githubusercontent.com/Pratikdhage48/Supply-Chain-Logistics-Analytics/main/Supplier_&_Logistics_Analysis.png)
+ ![Dashboard](https://raw.githubusercontent.com/Pratikdhage48/Supply-Chain-Logistics-Analytics/main/Supplier & Logistics Analysis.png)
