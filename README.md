@@ -147,7 +147,7 @@ See [Power BI Dashboard](#-power-bi-dashboard) above for a page-by-page breakdow
 2. Review **Prime Manufacturing** and **Global Supply Ltd** — the two highest cumulative defect-rate suppliers in the table — for quality-improvement plans or renegotiation.
 3. Evaluate whether volume can be shifted from Route A toward the lower-cost Route B/C without hurting delivery performance.
 4. Benchmark **Blue Dart** and **Delhivery** against **DTDC** on cost-per-shipment, since DTDC currently carries the most shipping cost and revenue share.
-5. Fix the **Average Defect Rate (%)** measure (currently showing 227.71%, which is not a valid percentage) before sharing this dashboard externally — see the Review section for the likely cause.
+5. Fix the **Average Defect Rate (%)** measure (currently showing 2.28%, which is not a valid percentage) before sharing this dashboard externally — see the Review section for the likely cause.
 
 ## 📁 Project Folder Structure
 
